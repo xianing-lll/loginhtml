@@ -1,0 +1,79 @@
+body{
+    /*设置背景图片 不平铺 水平和垂直都居中 固定不动*/
+    background: url("../img/1.png") no-repeat center center fixed;
+    background-size: cover;
+}
+form{
+    width: 345px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+/*    盒阴影，水平和垂直偏移量都为0，阴影模糊半径位13px,阴影扩张半径3px,黑色透明度为50%*/
+    box-shadow: 0 0 13px 3px rgba(0,0,0,0.5);
+    overflow: hidden;/*防止内容溢出*/
+}
+input{
+    width: 276px;
+    height: 48px;
+    /*元素的边框为 1 像素宽、实线、颜色使用 rgba 来表达*/
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 4px;
+    /*设置input输入框为块状元素*/
+    display: block;
+    font-family: 'Source Code Pro',sans-serif;
+    font-size: 18px;
+    color: #fff;
+    padding-left: 45px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.4) no-repeat 16px 16px;
+}
+.border-radius{
+    width: 200px;
+    height: 200px;
+    margin: 40px auto;
+    background: url("../img/2.jpg") no-repeat center center;
+    border-radius: 200px;
+    border: 5px solid rgba(255,255,255,0.4);
+
+}
+/*设置 当光标放到type=submit 上时，为一只小手*/
+input[type=submit]{
+    cursor: pointer;
+}
+/*设置输入框的提示文字为白色*/
+::-webkit-input-placeholder{
+    color: #ffffff;
+}
+/*当该input元素获得焦点时，设置背景颜色及盒阴影*/
+input:focus{
+    background-color: rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px 1px rgba(255,255,255,0.5);
+    overflow: hidden;
+}
+.btn{
+    width: 138px;
+    height: 44px;
+    border-radius: 4px;
+    margin: 0 auto;
+    background: #00D0DC;
+    padding: 10.5px 21px;
+    border-radius: 6px;
+    color: #e1e1e1;
+}
+.btn:hover{
+    border:1px solid #253727;
+    text-shadow: 0 1px 0 #333333;
+    background: #00D0DC;
+    color: #fff;
+}
+/*当该元素激活时（在鼠标单击与释放之间发生的事）时，设置外边距、文字阴影、边框、背景颜色、文字颜色*/
+.btn:active{
+    margin-top: 1px;
+    text-shadow: 0 -1px 0 #333333;
+    border: 1px solid #00B0DC;
+    color: #fff;
+}
