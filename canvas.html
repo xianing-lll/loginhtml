@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>涂鸦板</title>
+    <style>
+        .cont{
+            /*上下零，左右自动填充*/
+            margin: 0 auto;
+            width: 900px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+<div class="cont">
+    颜色:<input type="color" id="color">
+<!--   step每次拖动时地增量 -->
+    粗细:<input type="range" min="1" max="30" step="1" defaultValue="1" id="cuxi">
+    <canvas id="mypic">你的浏览器不支持canvas,请升级浏览器</canvas>
+    <input type="button" id="clear" value="清除" />
+</div>
+<script>
+<!--    匿名函数-->
+    (function () {
+        var mypic=document.getElementById("mypic");
+        mypic.width=900;
+        mypic.height=600;
+        mypic.style.border="5px solid #000";
+    //    准备画笔
+        var context=mypic.getContext("2d");
+        //当画笔在画布内按下时
+        mypic.onmousedown=function (ev) {
+            // mypic.getBoundingClientRect().x获取某个元素相对浏览器的位置
+            var x=ev.clientX-mypic.getBoundingClientRect().x;
+            var y=ev.clientY-mypic.getBoundingClientRect().y;
+            // alert(x+":"+y);
+            context.beginPath();
+            context.moveTo(x,y)
+            mypic.onmousemove=function (ev2) {
+                var x1=ev2.clientX-mypic.getBoundingClientRect().x;
+                var y1=ev2.clientY-mypic.getBoundingClientRect().y;
+                //画路径
+                context.lineTo(x1,y1);
+                //描线
+                context.stroke();
+
+            }
+            //鼠标抬起是
+            mypic.onmouseup=function (ev3) {
+                mypic.onmousemove=null;
+            }
+
+            document.getElementById("color").onchange=function () {
+                context.strokeStyle=this.value;
+            }
+            document.getElementById("cuxi").onchange=function () {
+
+                context.lineWidth=this.value;
+            }
+
+        }
+        document.getElementById("clear").onclick=function clearbutton() {
+            mypic.width=900;
+            mypic.height=600;
+
+        }
+
+    }())
+
+
+
+function coloronchage() {
+
+}
+
+</script>
+</body>
+</html>
